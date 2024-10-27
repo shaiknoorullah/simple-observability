@@ -1,0 +1,99 @@
+{
+  "name": "simple-observability",
+  "version": "0.0.0-development",
+  "description": "Advanced TypeScript Observability System with Traces, Metrics, and Logs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run build:types && npm run build:js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "tsup",
+    "test": "mocha -r ts-node/register 'test/**/*.test.ts'",
+    "test:watch": "mocha -r ts-node/register 'test/**/*.test.ts' --watch",
+    "test:coverage": "nyc mocha -r ts-node/register 'test/**/*.test.ts'",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,json,md}\"",
+    "prepare": "husky install",
+    "manual-test": "ts-node test/manual/scenario.ts",
+    "docs": "typedoc --out docs src",
+    "validate": "npm-run-all --parallel test lint format:check build",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "observability",
+    "typescript",
+    "opentelemetry",
+    "tracing",
+    "metrics",
+    "logging"
+  ],
+  "author": "Shaik Noorullah",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaiknoorullah/simple-observability.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shaiknoorullah/simple-observability/issues"
+  },
+  "homepage": "https://github.com/shaiknoorullah/simple-observability#readme",
+  "dependencies": {
+    "@opentelemetry/api": "^1.4.1",
+    "@opentelemetry/exporter-metrics-otlp-http": "^0.41.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.41.0",
+    "@opentelemetry/resources": "^1.15.0",
+    "@opentelemetry/sdk-logs": "^0.41.0",
+    "@opentelemetry/sdk-metrics": "^1.15.0",
+    "@opentelemetry/sdk-trace-node": "^1.15.0",
+    "@opentelemetry/semantic-conventions": "^1.15.0",
+    "chalk": "^4.1.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.1",
+    "@commitlint/config-conventional": "^17.6.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.15.11",
+    "@types/sinon": "^10.0.13",
+    "@types/uuid": "^9.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "chai": "^4.3.7",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "mocha": "^10.2.0",
+    "npm-run-all": "^4.1.5",
+    "nyc": "^15.1.0",
+    "prettier": "^2.8.7",
+    "rimraf": "^5.0.0",
+    "semantic-release": "^21.0.1",
+    "sinon": "^15.0.3",
+    "ts-node": "^10.9.1",
+    "tsup": "^6.7.0",
+    "typedoc": "^0.24.1",
+    "typescript": "^5.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
