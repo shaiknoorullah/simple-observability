@@ -25,7 +25,7 @@
     "docs": "typedoc --out docs src",
     "validate": "npm-run-all --parallel test lint format:check build",
     "commit": "git-cz",
-    "semantic-release": "semantic-release",
+    "release": "semantic-release",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
