@@ -56,6 +56,7 @@
     "@opentelemetry/sdk-trace-node": "^1.15.0",
     "@opentelemetry/semantic-conventions": "^1.15.0",
     "chalk": "^4.1.2",
+    "simple-observability": "link:",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -63,10 +64,11 @@
     "@commitlint/config-conventional": "^17.6.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
-    "@types/chai": "^4.3.4",
+    "@types/chai": "^4.3.20",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.15.11",
     "@types/sinon": "^10.0.13",
+    "@types/sinon-chai": "^4.0.0",
     "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
@@ -86,10 +88,11 @@
     "rimraf": "^5.0.0",
     "semantic-release": "^21.0.1",
     "sinon": "^15.0.3",
+    "sinon-chai": "^4.0.0",
     "ts-node": "^10.9.1",
     "tsup": "^6.7.0",
     "typedoc": "^0.24.1",
-    "typescript": "^5.0.3"
+    "typescript": "^5.1.6"
   },
   "config": {
     "commitizen": {
