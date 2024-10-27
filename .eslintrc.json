@@ -9,7 +9,8 @@
 	"plugins": [
 		"@typescript-eslint",
 		"import",
-		"prettier"
+		"prettier",
+		"chai-friendly"
 	],
 	"extends": [
 		"eslint:recommended",
@@ -180,14 +181,8 @@
 				]
 			}
 		],
-		"no-unused-expressions": [
-			"error",
-			{
-				"allowShortCircuit": true,
-				"allowTernary": true,
-				"allowTaggedTemplates": true
-			}
-		]
+		"no-unused-expressions": "off",
+		"chai-friendly/no-unused-expressions": "error"
 	},
 	"settings": {
 		"import/parsers": {
