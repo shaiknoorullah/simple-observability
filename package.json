@@ -1,6 +1,6 @@
 {
   "name": "simple-observability",
-  "version": "1.0.0-development",
+  "version": "1.0.0",
   "description": "Advanced TypeScript Observability System with Traces, Metrics, and Logs",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
