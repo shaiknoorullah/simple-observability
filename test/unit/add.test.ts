@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import { add } from '../../src/utils/add';
 
 describe('add function', () => {
+  // writing tests for dummy test function
   it('should add two positive numbers correctly', () => {
     expect(add(2, 3)).to.equal(5);
   });
