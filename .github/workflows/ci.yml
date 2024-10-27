@@ -11,27 +11,29 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: '18'
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install pnpm
+        run: npm install -g pnpm
 
-      - name: Lint Code
-        run: npm run lint
+      - name: Install dependencies
+        run: pnpm install
 
-      - name: Run Unit Tests
-        run: npm test
+      - name: Run lint
+        run: pnpm run lint
 
-      - name: Build Project
-        run: npm run build
+      - name: Run tests
+        run: pnpm run test
+
+      - name: Run tests with coverage
+        run: pnpm run test:coverage
 
   release:
     runs-on: ubuntu-latest
@@ -49,9 +51,10 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        run: npm install -g pnpm
 
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run semantic-release
+        run: pnpm run semantic-release
