@@ -8,9 +8,6 @@ lib/
 # husky
 .husky
 
-# If not using a dedicated output directory:
-*.js
-*.js.map
 
 
 # IDE files
