@@ -13,19 +13,19 @@ A comprehensive observability solution for TypeScript applications, providing in
 
 ## 🚀 Installation
 
-\`\`\`sh
+```sh
 npm install ts-observability
-\`\`\`
+```
 
 ## 📘 Quick Start
 
-\`\`\`typescript
+```typescript
 import { ObservabilitySystem, ObservabilityConfig } from 'ts-observability';
 
 const config: ObservabilityConfig = {
-serviceName: 'my-service',
-serviceVersion: '1.0.0',
-environment: 'production'
+  serviceName: 'my-service',
+  serviceVersion: '1.0.0',
+  environment: 'production',
 };
 
 const observability = new ObservabilitySystem(config);
@@ -41,19 +41,19 @@ observability.startTraceVisualization();
 // Use in your application
 const span = tracer.startSpan('operation');
 try {
-meter.createCounter('requests').add(1);
-logger.info('Operation started');
-// Your business logic here
-span.end();
+  meter.createCounter('requests').add(1);
+  logger.info('Operation started');
+  // Your business logic here
+  span.end();
 } catch (error) {
-logger.error('Operation failed', { error });
-span.recordException(error);
-span.end();
+  logger.error('Operation failed', { error });
+  span.recordException(error);
+  span.end();
 }
 
 // Cleanup
 await observability.shutdown();
-\`\`\`
+```
 
 ## 🏗️ Architecture
 
