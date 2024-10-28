@@ -7,7 +7,7 @@ module.exports = {
       prerelease: true,
     },
   ],
-  repositoryUrl: 'https://github.com/yourusername/simple-observability.git',
+  repositoryUrl: 'https://github.com/shaiknoorullah/simple-observability.git',
   tagFormat: 'v${version}',
   plugins: [
     [
