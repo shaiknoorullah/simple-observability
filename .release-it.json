@@ -4,12 +4,7 @@
     "commitMessage": "chore(release): v${version}"
   },
   "hooks": {
-    "before:init": [
-      "npm install pnpm",
-      "git pull",
-      "pnpm run lint",
-      "pnpm run test"
-    ],
+    "before:init": ["git pull origin main", "pnpm run lint", "pnpm run test"],
     "after:bump": "npx auto-changelog -p",
     "github": {
       "release": true
