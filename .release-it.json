@@ -1,16 +1,25 @@
 {
+  "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
   "git": {
     "requireBranch": "main",
-    "commitMessage": "chore(release): v${version}"
+    "commitMessage": "chore(release): v${version}",
+    "tag": true,
+    "getLatestTagFromAllRefs": false,
+    "tagAnnotation": "v${version}",
+    "push": true,
+    "pushArgs": ["--follow-tags"],
+    "pushRepo": ""
+  },
+  "github": {
+    "release": true,
+    "releaseName": "Release v${version}",
+    "autoGenerate": true
+  },
+  "npm": {
+    "publish": true
   },
   "hooks": {
     "before:init": ["git pull origin main", "pnpm run lint", "pnpm run test"],
-    "after:bump": "npx auto-changelog -p",
-    "github": {
-      "release": true
-    },
-    "npm": {
-      "publish": true
-    }
+    "after:bump": "npx auto-changelog -p"
   }
 }
