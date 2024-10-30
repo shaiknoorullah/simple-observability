@@ -36,14 +36,7 @@ jobs:
         run: pnpm run test:coverage
 
   release:
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
     runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/main'
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -59,8 +52,15 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
-      - name: Semantic Release
+      - name: Initialize Git user
+        run: git config --global user.email "shaiknooru247@gmail.com"
+          git config --global user.name "Release Workflow"
+      - name: Initialise the NPM config
+        run: npm config set //regisry.npmjs.org/:_authToken=${NPM_TOKEN}
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Run Release
+        run: pnpm release --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release

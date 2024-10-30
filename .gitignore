@@ -8,6 +8,8 @@ lib/
 # husky
 .husky
 
+#npmrc
+.npmrc
 
 
 # IDE files
